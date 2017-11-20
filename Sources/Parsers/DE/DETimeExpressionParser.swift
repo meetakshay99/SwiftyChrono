@@ -249,7 +249,8 @@ public class DETimeExpressionParser: Parser {
         }
         
         if result.end!.date.timeIntervalSince1970 < result.start.date.timeIntervalSince1970 {
-            result.end?.imply(.day, to: result.end![.day]! + 1)
+            let to = result.end![.day]! + 1
+            result.end?.imply(.day, to: to)
         }
         
         return result
