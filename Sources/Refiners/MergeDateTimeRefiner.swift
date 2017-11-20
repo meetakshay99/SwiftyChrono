@@ -129,7 +129,7 @@ class MergeDateTimeRefiner: Refiner {
             timeResult.index + timeResult.text.characters.count)
         
         dateResult.index = startIndex
-        dateResult.text = text.substring(with: text.range(ofStartIndex: startIndex, andEndIndex: endIndex))
+        dateResult.text = String(text[text.range(ofStartIndex: startIndex, andEndIndex: endIndex)])
         
         for tag in timeResult.tags.keys {
             dateResult.tags[tag] = true

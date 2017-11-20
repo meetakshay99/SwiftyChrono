@@ -51,7 +51,7 @@ extension String {
     }
     
     func substring(from idx: Int) -> String {
-        return substring(from: index(startIndex, offsetBy: idx))
+        return String(self[index(startIndex, offsetBy: idx)...])
     }
     
     func substring(from startIdx: Int, to endIdx: Int? = nil) -> String {
@@ -60,7 +60,7 @@ extension String {
         }
         let start = characters.index(startIndex, offsetBy: startIdx)
         let end = endIdx != nil ? characters.index(startIndex, offsetBy: endIdx!) : endIndex
-        return substring(with: start..<end)
+        return String(characters[start..<end])
     }
     
     func range(ofStartIndex idx: Int, length: Int) -> Range<String.Index> {

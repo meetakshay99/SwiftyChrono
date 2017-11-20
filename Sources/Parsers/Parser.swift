@@ -36,7 +36,7 @@ public class Parser {
                 if !result.isMoveIndexMode { // extraction is success, normal mode
                     // If success, start from the end of the result
                     startIndex = result.index + result.text.characters.count
-                    remainingText = text.substring(from: text.index(text.startIndex, offsetBy: startIndex))
+                    remainingText = String(text[text.index(text.startIndex, offsetBy: startIndex)...])
                     
                     if !strictMode || result.hasPossibleDates() {
                         results.append(result)
@@ -48,7 +48,7 @@ public class Parser {
             } else { // extraction is failure
                 // If fail, move on by 1
                 let location = existingMatch.range.location + 1
-                remainingText = text.substring(from: text.index(text.startIndex, offsetBy: location))
+                remainingText = String(text[text.index(text.startIndex, offsetBy:location)...])
                 startIndex = location
             }
             
